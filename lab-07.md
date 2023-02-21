@@ -1,7 +1,7 @@
 Lab 07 - Conveying the right message through visualisation
 ================
-Insert your name here
-Insert date here
+Ben Hardin
+2/21/2023
 
 ### Load packages and data
 
@@ -11,12 +11,63 @@ library(tidyverse)
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here. Add code
-chunks as needed. Don’t forget to label your code chunk. Do not use
-spaces in code chunk labels.
+``` r
+covid <- tribble(
+~date, ~count, ~mandate,
+"7/12/2020", 25.5, "Mask",
+"7/12/2020", 9.5, "No Mask",
+"7/13/2020", 20, "Mask",
+"7/13/2020", 9, "No Mask",
+"7/14/2020", 20, "Mask",
+"7/14/2020", 9.5, "No Mask",
+"7/15/2020", 20.5, "Mask",
+"7/15/2020", 10, "No Mask",
+"7/16/2020", 20, "Mask",
+"7/16/2020", 10, "No Mask",
+"7/17/2020", 20, "Mask",
+"7/17/2020", 9.5, "No Mask",
+"7/18/2020", 20.5, "Mask",
+"7/18/2020", 9.5, "No Mask",
+"7/19/2020", 20, "Mask",
+"7/19/2020", 9, "No Mask",
+"7/20/2020", 20.5, "Mask",
+"7/20/2020", 8.5, "No Mask",
+"7/21/2020", 21.5, "Mask",
+"7/21/2020", 8.5, "No Mask",
+"7/22/2020", 20, "Mask",
+"7/22/2020", 8.75, "No Mask",
+"7/23/2020", 20, "Mask",
+"7/23/2020", 8.5, "No Mask",
+"7/24/2020", 20.5, "Mask",
+"7/24/2020", 10, "No Mask",
+"7/25/2020", 19, "Mask",
+"7/25/2020", 10, "No Mask",
+"7/26/2020", 19.5, "Mask",
+"7/26/2020", 10.1, "No Mask",
+"7/27/2020", 17, "Mask",
+"7/27/2020", 9.5, "No Mask",
+"7/28/2020", 16.4, "Mask",
+"7/28/2020", 9.6, "No Mask",
+"7/29/2020", 16.5, "Mask",
+"7/29/2020", 9.7, "No Mask",
+"7/30/2020", 16.6, "Mask",
+"7/30/2020", 10, "No Mask",
+"7/31/2020", 16.2, "Mask",
+"7/31/2020", 9, "No Mask",
+"8/1/2020", 16.3, "Mask",
+"8/1/2020", 9.2, "No Mask",
+"8/2/2020", 16, "Mask",
+"8/2/2020", 9.1, "No Mask",
+"8/3/2020", 16.1, "Mask",
+"8/3/2020", 9.3, "No Mask"
+)
+```
 
 ### Exercise 2
 
-…
+``` r
+ggplot(covid, aes(x = date, y = count, group = mandate, color = mandate))+
+  geom_line()
+```
 
-Add exercise headings as needed.
+![](lab-07_files/figure-gfm/new-viz-1.png)<!-- -->
