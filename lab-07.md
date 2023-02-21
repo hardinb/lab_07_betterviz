@@ -9,6 +9,16 @@ Ben Hardin
 library(tidyverse) 
 ```
 
+The original graph is extremely misleading because the two groups (Mask
+vs. No Mask) are charted on different y axes with totally different
+scales. As a result, 21 cases for a county with a mask mandate is
+represented at the same point in the plot as 10 cases for a county with
+no mask mandate. This makes it look like both kinds of counties had
+roughly the same number of daily cases, but then the number of cases in
+Masked counties decreased to be substantially lower than the number of
+cases in Un-Masked counties, although this is not what the actual
+numbers show.
+
 ### Exercise 1
 
 ``` r
@@ -67,7 +77,31 @@ covid <- tribble(
 
 ``` r
 ggplot(covid, aes(x = date, y = count, group = mandate, color = mandate))+
-  geom_line()
+  geom_line(linewidth = 1.1)+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = -40, hjust = -0.05))+
+  labs(title = "COVID trends in Kansas",
+       y = "Daily cases per 100k population",
+       x = "Date",
+       color = "County mandate")
 ```
 
 ![](lab-07_files/figure-gfm/new-viz-1.png)<!-- -->
+
+### Exercise 3
+
+Compared to the original visualization, this plot more effectively (and
+honestly) shows that the counties with no mask mandate have relatively
+low and consistent rates of COVID cases; whereas, the counties with mask
+mandates have relatively high COVID rates that decrease over time,
+although they remain higher than for those with no mask mandate.
+
+### Exercise 4
+
+What the graph tells us is that COVID rates were consistently low in
+counties with no mask mandates, and were relatively higher, but
+decreased over time in counties with mask mandates. One likely
+explanation for this result is that counties that had higher rates of
+COVID to start with were the ones that instituted mask mandates, and
+those mask mandates have been somewhat effective at reducing the rates
+of COVID in those counties.
