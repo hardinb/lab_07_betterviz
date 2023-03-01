@@ -21,6 +21,10 @@ numbers show.
 
 ### Exercise 1
 
+Before we can try to make a more helpful visualization, we need to make
+a dataframe replicating (approximately) the data shown in the original
+plot.
+
 ``` r
 covid <- tribble(
 ~date, ~count, ~mandate,
@@ -74,6 +78,10 @@ covid <- tribble(
 ```
 
 ### Exercise 2
+
+Now that we have out data, let’s see what the plot looks like when we
+plot the data for both masking and non-masking counties on the same
+y-axis.
 
 ``` r
 ggplot(covid, aes(x = date, y = count, group = mandate, color = mandate))+
